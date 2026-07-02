@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "author": "LoomRT",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-led", "id": "red", "top": 140.4, "left": 215, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "green",
+      "top": 82.8,
+      "left": 215,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "blue", "top": 25.2, "left": 215, "attrs": { "color": "blue" } },
+    {
+      "type": "wokwi-led",
+      "id": "yellow",
+      "top": -32.4,
+      "left": 215,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-mpu6050", "id": "mpu", "top": 128.62, "left": -93.68, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 186.35,
+      "left": 134.4,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 128.75,
+      "left": 134.4,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 71.15,
+      "left": 134.4,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 13.55,
+      "left": 134.4,
+      "attrs": { "value": "330" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "r1:2", "red:A", "green", [ "h46.8" ] ],
+    [ "red:C", "esp:GND.10", "black", [ "h-124.4", "v-153.3" ] ],
+    [ "r2:2", "green:A", "green", [] ],
+    [ "green:C", "esp:GND.10", "black", [ "h-124.4", "v-95.7" ] ],
+    [ "r3:2", "blue:A", "green", [ "h46.8", "v33.6" ] ],
+    [ "blue:C", "esp:GND.10", "black", [ "h-124.4", "v-18.9" ] ],
+    [ "r4:2", "yellow:A", "green", [] ],
+    [ "yellow:C", "esp:GND.10", "black", [ "h-124.4", "v38.7" ] ],
+    [ "mpu:VCC", "esp:3V3", "red", [ "h-19.2", "v133.2" ] ],
+    [ "esp:4", "r1:1", "green", [ "h23.74", "v57.3" ] ],
+    [ "r2:1", "esp:5", "green", [ "h-9.6", "v-28.8", "h-33.34" ] ],
+    [ "r3:1", "esp:6", "green", [ "h-9.6", "v38.7" ] ],
+    [ "r4:1", "esp:7", "green", [ "h-19.2", "v86.7" ] ],
+    [ "mpu:SCL", "esp:1", "yellow", [ "v0" ] ],
+    [ "mpu:SDA", "esp:0", "blue", [ "v0" ] ],
+    [ "mpu:GND", "esp:GND.4", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
