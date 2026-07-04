@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "LoomRT",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot", "top": -78.1, "left": -77, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "sonar", "top": -75.3, "left": -311.3, "attrs": {} },
+    {
+      "type": "wokwi-led-matrix",
+      "id": "strip",
+      "top": -56.2,
+      "left": 57.4,
+      "attrs": { "rows": "1", "cols": "16" }
+    },
+    { "type": "wokwi-servo", "id": "servo", "top": 113.2, "left": 172.8, "attrs": {} },
+    { "type": "wokwi-led", "id": "led", "top": -3.6, "left": 387.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "rled",
+      "top": 42.35,
+      "left": 345.6,
+      "attrs": { "value": "330" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot:SIG", "esp:3", "purple", [ "v48", "h-0.4", "v19.5" ] ],
+    [ "pot:VCC", "esp:3V3.2", "red", [ "h-0.8", "v28.8", "v9.9" ] ],
+    [ "pot:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "sonar:VCC", "esp:5V.1", "red", [ "v29.5", "v9.2" ] ],
+    [ "sonar:GND", "esp:GND.4", "black", [ "v105.6", "h66", "v0.3" ] ],
+    [ "esp:6", "strip:DIN", "green", [ "h14.14", "v-115.5" ] ],
+    [ "esp:3V3.1", "strip:VDD", "red", [ "h15.42", "v-38.7", "h343.8" ] ],
+    [ "esp:GND.10", "strip:VSS", "black", [] ],
+    [ "esp:5V.2", "servo:V+", "red", [ "h-13.38", "v28.5", "h144", "v-0.1" ] ],
+    [ "esp:GND.5", "servo:GND", "black", [ "h-3.78", "v9.3" ] ],
+    [ "esp:4", "servo:PWM", "green", [ "v-0.3", "h14.14", "v67.2" ] ],
+    [ "sonar:TRIG", "esp:1", "green", [ "v86.4", "h-0.4" ] ],
+    [ "sonar:ECHO", "esp:0", "blue", [ "v76.8", "h-0.8" ] ],
+    [ "esp:5", "rled:1", "green", [ "h23.74", "v-29.1" ] ],
+    [ "rled:2", "led:A", "green", [] ],
+    [ "led:C", "esp:GND.10", "black", [ "h-153.2", "v-19.2", "h-158.14" ] ]
+  ],
+  "dependencies": {}
+}
