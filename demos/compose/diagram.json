@@ -2,6 +2,7 @@
   "version": 1,
   "author": "LoomRT",
   "editor": "wokwi",
+  "serialMonitor": { "display": "terminal" },
   "parts": [
     { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
     { "type": "wokwi-potentiometer", "id": "pot", "top": -78.1, "left": -77, "attrs": {} },

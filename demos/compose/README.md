@@ -14,8 +14,6 @@ When the firmware finishes booting, you land at the cli prompt:
 >
 ```
 
-**Note:** the alpha Wokwi viewer uses an HTML input at the very bottom of the page, not a real serial terminal. It won't transmit control or escape characters, so to send a Ctrl-C, type the literal characters `^c` and press Enter as a workaround.
-
 Quick orientation: the kernel is heavily inspired by OS-9, so if you're familiar with it you'll recognize the bones. It's Unix-y. If you're comfortable at a Linux shell, it will feel right at home. You run programs by name, pipe them together, and redirect their input and output, like you'd expect.
 
 ## Modules all the way down
@@ -123,7 +121,7 @@ A device isn't a program, so it can't sit at the head of a pipe on its own. A `s
 > sample /pot
 ```
 
-Turn the knob and the numbers follow; it runs until you stop it with `^c`. Now the pot is a stream, which is exactly what a pipe wants to eat.
+Turn the knob and the numbers follow; it runs until you stop it with Ctrl-C. Now the pot is a stream, which is exactly what a pipe wants to eat.
 
 ## From knob to meter
 
@@ -133,7 +131,7 @@ Now you have all three pieces. `sample /pot` turns the knob into a stream of num
 > sample /pot | rangepct 0 4095 | bar
 ```
 
-Three programs you already met, each doing its one job. The kernel does the plumbing between them, and `^c` stops the pipe.
+Three programs you already met, each doing its one job. The kernel does the plumbing between them, and Ctrl-C stops the pipe.
 
 ## Swapping the ends
 
