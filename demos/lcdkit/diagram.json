@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "LoomRT",
+  "editor": "wokwi",
+  "serialMonitor": { "display": "terminal" },
+  "parts": [
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": { "serialInterface": "USB_SERIAL_JTAG" } },
+    { "type": "chip-gc9a01", "id": "lcd", "top": -46.98, "left": 139.2, "attrs": {} },
+    { "type": "wokwi-ky-040", "id": "knob", "top": 174.5, "left": -202.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:3V3.1", "lcd:VCC", "red", [ "h-22.98", "v-67.5" ] ],
+    [ "esp:GND.1", "lcd:GND", "black", [ "v-0.3", "h-3.78", "v-48" ] ],
+    [ "esp:0", "lcd:MOSI", "green", [ "h-42.18", "v-153.9", "h432", "v38.4" ] ],
+    [ "esp:1", "lcd:SCK", "blue", [ "h-32.58", "v-173.1", "h432", "v57.6" ] ],
+    [ "esp:2", "lcd:DC", "orange", [ "h-13.38", "v-57.9" ] ],
+    [ "esp:7", "lcd:CS", "gold", [ "h23.74", "v-105.9" ] ],
+    [ "esp:5", "lcd:BL", "purple", [ "h14.14", "v-182.7", "h307.2", "v48" ] ],
+    [ "knob:CLK", "esp:10", "blue", [ "h57.6", "v-66.9" ] ],
+    [ "knob:DT", "esp:6", "yellow", [ "h201.6", "v-95.6" ] ],
+    [ "knob:SW", "esp:9", "orange", [ "h211.2", "v-143.6" ] ],
+    [ "knob:VCC", "esp:3V3.2", "red", [ "h67.2", "v-172.1" ] ],
+    [ "knob:GND", "esp:GND.4", "black", [ "h76.8", "v-94.9" ] ]
+  ],
+  "dependencies": {
+    "chip-gc9a01": "github:pglewis/wokwi-gc9a01@1.0.1"
+  }
+}
