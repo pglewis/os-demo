@@ -23,6 +23,6 @@
     [ "knob:GND", "esp:GND.4", "black", [ "h76.8", "v-94.9" ] ]
   ],
   "dependencies": {
-    "chip-gc9a01": "github:pglewis/wokwi-gc9a01@1.0.1"
+    "chip-gc9a01": "github:pglewis/wokwi-gc9a01@1.0.2"
   }
 }
