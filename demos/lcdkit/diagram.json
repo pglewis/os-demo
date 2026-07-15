@@ -5,8 +5,9 @@
   "serialMonitor": { "display": "terminal" },
   "parts": [
     { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": { "serialInterface": "USB_SERIAL_JTAG" } },
-    { "type": "chip-gc9a01", "id": "lcd", "top": -46.98, "left": 139.2, "attrs": {} },
-    { "type": "wokwi-ky-040", "id": "knob", "top": 174.5, "left": -202.4, "attrs": {} }
+    { "type": "chip-gc9a01", "id": "lcd", "top": -46.98, "left": 139.2, "attrs": { "glassMirrorX": "1" } },
+    { "type": "wokwi-ky-040", "id": "knob", "top": 174.5, "left": -202.4, "attrs": {} },
+    { "type": "chip-ec11-adapter", "id": "ec11", "top": 174.5, "left": -106.4, "attrs": {}, "hide": true }
   ],
   "connections": [
     [ "esp:3V3.1", "lcd:VCC", "red", [ "h-22.98", "v-67.5" ] ],
@@ -16,13 +17,16 @@
     [ "esp:2", "lcd:DC", "orange", [ "h-13.38", "v-57.9" ] ],
     [ "esp:7", "lcd:CS", "gold", [ "h23.74", "v-105.9" ] ],
     [ "esp:5", "lcd:BL", "purple", [ "h14.14", "v-182.7", "h307.2", "v48" ] ],
-    [ "knob:CLK", "esp:10", "blue", [ "h57.6", "v-66.9" ] ],
-    [ "knob:DT", "esp:6", "yellow", [ "h201.6", "v-95.6" ] ],
+    [ "ec11:CLK", "esp:10", "blue", [ "h57.6", "v-66.9" ] ],
+    [ "ec11:DT", "esp:6", "yellow", [ "h201.6", "v-95.6" ] ],
+    [ "knob:CLK", "ec11:KY_CLK", "blue", [] ],
+    [ "knob:DT", "ec11:KY_DT", "yellow", [] ],
     [ "knob:SW", "esp:9", "orange", [ "h211.2", "v-143.6" ] ],
     [ "knob:VCC", "esp:3V3.2", "red", [ "h67.2", "v-172.1" ] ],
     [ "knob:GND", "esp:GND.4", "black", [ "h76.8", "v-94.9" ] ]
   ],
   "dependencies": {
-    "chip-gc9a01": "github:pglewis/wokwi-gc9a01@1.0.2"
+    "chip-gc9a01": "github:pglewis/wokwi-gc9a01@1.0.3",
+    "chip-ec11-adapter": "github:pglewis/wokwi-gc9a01@2.0.0"
   }
 }
